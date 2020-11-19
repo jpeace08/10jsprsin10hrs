@@ -3,6 +3,7 @@
   box-sizing: border-box;
 }
 body {
+  color: rgba(36, 36, 36, 0.678);
   background-image: url("./public/image/snow.jpg");
   background-size: cover;
   background-position: center center;
@@ -12,11 +13,12 @@ body {
   min-width: 100%;
   min-height: 100vh;
   background-repeat: no-repeat;
-  font-family: "Poppins" sans-serif;
+  font-family: "Poppins" san-serif;
   margin: 0;
 }
 
 h1 {
+  color: rgb(73, 116, 165);
   margin-top: 5rem;
   font-weight: normal;
   font-size: 4rem;
