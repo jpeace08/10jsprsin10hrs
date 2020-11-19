@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+
+    width: 400px;
+    font-family: 'Poppins', sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 0px 0px 40px 1px rgba(197, 197, 197, 0.74);
+}
+
+img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.recipe-container{
+    width: 100%;
+    min-width: 100%;
+}
+
+/* header */
+
+.header-container{
+    box-shadow: 1px 4px 5px -5px #696969;
+    color: rgb(119, 119, 119);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-radius: 5px;
+    padding: 30px;
+}
+.header-container .header_menu{
+    width: 10%;
+}
+.header-container .header_menu > i{
+    
+}
+.header-container .header_search{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+input{
+    width: 100%;
+    height: 100%;
+    color: aliceblue;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid rgb(150, 150, 150);
+}
+
+input:focus{
+    outline: none;
+    color: #696969;
+}
+
+.header-container .header_search-box{
+    width: 70%;
+}
+.header-container .header_search-icon{
+    width: 5%;
+}
+.header-container .header_search-icon > i{}
+
+/* favfood*/
+.favfood-container{
+    background-color: #9695ed18;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+.favfood-container .favfood-item{
+    width: 15%;
+    margin: 5px;
+}
+.favfood-container .favfood-item .fav-thumbl{
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 10px 1px #696969;
+    border: 2px solid #ffff;
+}
+.favfood-container .favfood-item .fav-name{
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+/* food of day */
+.fod-container{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px -7px 12px -11px rgba(160, 160, 160, 0.933);
+}
+.fod-container .fod-item{
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    display: flex;flex-direction: column;
+    box-shadow: 0px 0px 4px 2px rgba(160, 160, 160, 0.933);
+    border-radius: 5px;
+}
+.fod-container .fod-item .fod-thumbl{
+    height: 100%;
+    border-radius: 5px;
+    order: 1;
+}
+.fod-container .fod-item .fod-description{
+    height : 100%;
+    order: 2;
+    padding: 20px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.fod-container .fod-item .fod-description .fod-description-name{}
+.fod-container .fod-item .fod-description .fod-description-like{}

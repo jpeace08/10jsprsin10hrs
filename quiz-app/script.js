@@ -208,11 +208,11 @@ submit_ans.addEventListener('click', (e)=>{
             document.getElementById('result').innerText = "Correct!";
             notify.classList.add('notify_anim');
         }
-
         //TODO: update question
         setTimeout(updateQuestion, 3000);
     }
     else{
+
         alert('Choose your answer!');
     }
 

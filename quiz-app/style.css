@@ -98,6 +98,10 @@ button:visited{
     width: 100%;
 }
 
+.active {
+    background-color: blueviolet;
+}
+
 @keyframes show_notify{
     0% {transform: translateY(-100px); opacity: 0;}
     100% {transform: translateY(-110px); opacity: 1;}
