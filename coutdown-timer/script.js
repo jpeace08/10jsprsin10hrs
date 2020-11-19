@@ -12,13 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const currentDate = new Date();
   
     const totalSecond = Math.floor((newYearDate - currentDate) / 1000);
-    const days = totalSecond / 3600 / 24;
-    const hours = (totalSecond / 3600) % 24;
-    const mins = totalSecond / 60;
+    const days = Math.floor(totalSecond / 3600 / 24);
+    const hours = Math.floor((totalSecond / 3600) % 24);
+    const mins = Math.floor(totalSecond / 60 % 60);
     const seconds = totalSecond % 60;
   
     daysEl.innerText = days;
     hoursEl.innerText = hours;
     minsEl.innerText = mins;
-    secondsEl.innerText = seconds;
+    secondsEl.innerText = seconds;  
   };
