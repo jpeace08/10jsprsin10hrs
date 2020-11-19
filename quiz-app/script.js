@@ -152,6 +152,7 @@ const inputEl = Array.from(document.querySelectorAll('input[id]'));
 const labelEl = Array.from(document.querySelectorAll('label[for]'));
 const questionEl = document.querySelector('#question');
 const submit_ans = document.querySelector('.submit-ans');
+const notify = document.querySelector('.notify');
 
 let currentIndex = 0;
 let current_answer, current_question;
@@ -164,7 +165,8 @@ const getRandomQuestion =  (data) => {
     return data[currentIndex];
 }
 
-const updateQuestion = (question) => {
+const updateQuestion = () => {
+    let question = getRandomQuestion(database);
     questionEl.innerText = question.question;
     let ansList = [];
     for (const key in question) {
@@ -183,26 +185,36 @@ const updateQuestion = (question) => {
             current_answer = e.target.value;
         });
     }
+
+    notify.classList.remove('notify_anim');
+    inputEl.forEach(el => {
+        el.checked = false;
+    })
+    current_answer=undefined;
 }
 
 submit_ans.addEventListener('click', (e)=>{
 
-    //TODO: check ans
-    current_question = database[currentIndex];
-    if(current_answer !== current_question[current_question.correct]){
-        console.log('Fail');
+    if(current_answer){
+        //TODO: check ans
+        current_question = database[currentIndex];
+        if(current_answer !== current_question[current_question.correct]){
+            notify.style['background-color'] = 'rgba(231, 0, 0, 0.671)';
+            document.getElementById('result').innerText = "Wrong!";
+            notify.classList.add('notify_anim');
+        }
+        else{
+            notify.style['background-color'] = ' rgba(0, 231, 0, 0.671)';
+            document.getElementById('result').innerText = "Correct!";
+            notify.classList.add('notify_anim');
+        }
+
+        //TODO: update question
+        setTimeout(updateQuestion, 3000);
     }
     else{
-        console.log('True');
+        alert('Choose your answer!');
     }
-
-    //TODO: update question
-    updateQuestion(getRandomQuestion(database));
-
-    //TODO: clear checked
-    inputEl.forEach(el => {
-        el.checked = false;
-    })
 
 })
 
