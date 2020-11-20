@@ -36,7 +36,9 @@ const addMealToFodContainer = async (meal, random = false) => {
                             `;
         fod_container.appendChild(fod_item);
         var like = fod_item.querySelector('.fod-description-like');
+        
         like.addEventListener('click', e => {
+            e.stopPropagation();
             if(Array.from(like.classList).includes('active')){
                 console.log('1');
                 like.classList.remove('active');
@@ -48,8 +50,28 @@ const addMealToFodContainer = async (meal, random = false) => {
             }
             updateFavFoods(getMealIdsFromLocalStorage(), false);
 
-        })   
+        });
+        fod_item.addEventListener('click', e => {
+            showDetailPopup(meal);
+        })
 
+}
+
+const showDetailPopup = (meal) => {
+    const popup_container = document.querySelector('.popup-detail-container');
+    popup_container.innerHTML = '';
+    var popup_detail = document.createElement('div');
+    popup_detail.classList.add('popup-detail');
+    var html = `<i class="fas fa-times-circle close"></i>
+                <img src="${meal.strMealThumb}" alt="">
+                <span class = "meal-detail">${meal.strInstructions}</span>`;
+    popup_detail.innerHTML = html;
+    popup_container.appendChild(popup_detail);
+    popup_container.style.display = 'block';
+    const closeIcon = popup_detail.querySelector('.close');
+    closeIcon.addEventListener('click', e => {
+        popup_container.style.display = 'none';
+    })
 }
 
 const updateFavFoods = async (ids, reload = true) => {
@@ -69,13 +91,16 @@ const updateFavFoodUi = (food) => {
                         <img src="${food.strMealThumb}" alt="" class="fav-thumbl">
                         <span class="fav-name">${food.strMeal}</span>
                         `;
+        html.addEventListener('click', e => {
+            showDetailPopup(food);
+        })
         favfood_container.appendChild(html);
 }
 
 const addMealToLocalStorage = (meal) =>{
     let mealIds = getMealIdsFromLocalStorage();
     mealIds = mealIds ? mealIds: [];
-    
+    if(mealIds.includes(meal.idMeal)) return;
     localStorage.setItem('mealIds', JSON.stringify([...mealIds, meal.idMeal]));
     // console.log(getMealIdsFromLocalStorage());
 }
