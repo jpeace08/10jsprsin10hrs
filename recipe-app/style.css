@@ -169,25 +169,25 @@ input:focus{
 
 .popup-detail-container {
     display: none;
-    position: inherit;
-    left: -76vh;
-    top: -50px;
+    position: fixed;
+    left: 0vh;
+    top: 0px;
     background-color: rgba(0, 0, 0, 0.644);
     width: 191vh;
     height: 100vh;
     margin: 0;
     padding: 0;
     z-index: 1;
+
 }
 .popup-detail{
+    position: absolute;
+    left: 35%;
     padding: 10px;
     border-radius: 5px;
-    position: inherit;
     margin-top: 10vh;
     width: 50vh;
     height: 80vh;
-    margin-left: auto;
-    margin-right: auto;
     background-color: antiquewhite;
     text-overflow: ellipsis;
     overflow: hidden;
